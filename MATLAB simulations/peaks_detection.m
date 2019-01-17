@@ -56,7 +56,6 @@ for o=1:length_AUG
     plot(locs_AUG(o), pks_AUG(o), 'r*', 'MarkerSize', 5); 
 end
 
-
 %% detection the Bottom 
 m_gap=ceil(0.3*mean(gaps)/2);
 locs_Bottom=[];
@@ -107,67 +106,3 @@ for i=1:(length(Augmentation)-2)
 end
 
 Augmentation_Index=mean(Aug)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-% [p,s,mu] = polyfit((1:numel(C)),C,6);
-% f_y = polyval(p,(1:numel(C))',[],mu);
-% data = C - f_y';  
-% figure,subplot(311),plot(data);hold on;grid on;
-% [pks_2,locs_2]=findpeaks(data,'MinPeakDistance',para);
-% xlabel('Frames');ylabel('Correlation');title('Baseline corrected')
-% [NA,length_2]=size(pks_2);
-% for o=1:length_2
-%     plot(locs_2(o), pks_2(o), 'r*', 'MarkerSize', 5); 
-% end
-% hold off;
-% 
-% Fs=60;
-% fc=20;
-% wn=(2/Fs)*fc;
-% b=fir1(20,wn,'low',kaiser(21,3));
-% y=filter(b,1,data);
-% subplot(312),plot(y);hold on;grid on;
-% xlabel('Frames');ylabel('Correlation');title('Noise filtered 1')
-% [pks_3,locs_3]=findpeaks(y,'MinPeakDistance',para);
-% [NA,length_3]=size(pks_3);
-% for o=1:length_3
-%     plot(locs_3(o), pks_3(o), 'r*', 'MarkerSize', 5); 
-% end
-% hold off;
-% 
-% smooth = sgolayfilt(y,3,5);title('Noise filtered 2');
-% subplot(313),plot(smooth);hold on;grid on
-% [pks_4,locs_4]=findpeaks(smooth,'MinPeakDistance',para);
-% [NA,length_4]=size(pks_4);
-% for o=1:length_4
-%     plot(locs_4(o), pks_4(o), 'r*', 'MarkerSize', 5); 
-% end
-% axis tight
-% xlabel('Frames');ylabel('Correlation');
-% hold off;
-% % legend('Noisy ECG Signal','Filtered Signal')
-% % title('Filtering Noisy ECG Signal')
-% 
-% thres_1=0.9*max(data);
-% thres_2=0.4*max(data);
-% t = 1:length(data);
-% figure,plot(t,data);hold on;
-% second_peak = locs_2(data(locs_2)>thres_2 & min(locs_2)<thres_1);
-% plot(second_peak,data(second_peak),'rs','MarkerFaceColor','g');
-
-
